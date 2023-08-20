@@ -193,7 +193,12 @@ public Action OnPlayerHurt(Event event, const char[] name, bool dontBroadcast) {
 	
 	event.SetInt("crit", 1);
 	event.SetInt("minicrit", 1);
-	event.SetInt("bonuseffect", 1);
+	
+	//Check if it's not a double donk
+	if (event.GetInt("bonuseffect") != 2)
+	{
+	    event.SetInt("bonuseffect", 1);
+	}
 	return Plugin_Changed;
 }
 
